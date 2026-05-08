@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Metodología — Bienestar 360</title>
+  <meta name="description" content="El Sistema de Reversión Biológica y el Componente de Acompañamiento Motivacional. La ciencia detrás del programa de bienestar familiar de Bienestar 360." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde:        #2B5F45;
+      --verde-oscuro: #1A3C2C;
+      --verde-claro:  #EAF5EE;
+      --dorado:       #C4882F;
+      --crema:        #F8F4EC;
+      --texto:        #1C2A22;
+      --gris:         #6B7C73;
+      --blanco:       #FFFFFF;
+      --sombra:       0 4px 24px rgba(27,60,44,0.08);
+      --sombra-hover: 0 12px 40px rgba(27,60,44,0.18);
+      --radio:        16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--crema);
+      color: var(--texto);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(248,244,236,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(43,95,69,0.1);
+      padding: 0 24px;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--verde);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--dorado); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--texto);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; color: var(--verde); }
+
+    .btn-nav {
+      background: var(--verde) !important;
+      color: var(--blanco) !important;
+      opacity: 1 !important;
+      padding: 10px 22px;
+      border-radius: 8px;
+    }
+
+    .btn-nav:hover { background: var(--verde-oscuro) !important; }
+
+    /* HERO */
+    .hero {
+      padding: 140px 24px 96px;
+      background: var(--blanco);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: 'SRB';
+      position: absolute;
+      right: -1%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(160px, 18vw, 280px);
+      font-weight: 600;
+      color: rgba(43,95,69,0.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--verde-claro);
+      color: var(--verde);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em { font-style: italic; color: var(--verde); }
+
+    .hero-lead {
+      font-size: 1.1rem;
+      color: var(--gris);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-verde {
+      background: var(--verde);
+      color: var(--blanco);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-verde:hover {
+      background: var(--verde-oscuro);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--verde);
+      color: var(--verde);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background: var(--verde-claro);
+      transform: translateY(-2px);
+    }
+
+    /* Pilar visual */
+    .pilares-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .pilar-vis {
+      background: var(--crema);
+      border-radius: 14px;
+      padding: 28px 20px;
+      text-align: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .pilar-vis:hover {
+      box-shadow: var(--sombra);
+      transform: translateY(-3px);
+    }
+
+    .pilar-vis:nth-child(1) { background: var(--verde-claro); }
+
+    .pilar-vis .icon { font-size: 2rem; margin-bottom: 10px; }
+
+    .pilar-vis h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--texto);
+      margin-bottom: 4px;
+    }
+
+    .pilar-vis p {
+      font-size: 0.8rem;
+      color: var(--gris);
+      line-height: 1.4;
+    }
+
+    /* SECTIONS */
+    section { padding: 96px 24px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--verde-claro);
+      color: var(--verde);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--texto);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    h2 em { font-style: italic; color: var(--verde); }
+
+    .section-lead {
+      font-size: 1.05rem;
+      color: var(--gris);
+      max-width: 680px;
+      line-height: 1.7;
+      margin-bottom: 56px;
+    }
+
+    /* SRB */
+    .srb-section { background: var(--crema); }
+
+    .srb-intro {
+      max-width: 780px;
+      margin-bottom: 56px;
+    }
+
+    .srb-intro p {
+      color: var(--gris);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .niveles-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+
+    .nivel-card {
+      background: var(--blanco);
+      border-radius: 12px;
+      padding: 28px 20px;
+      box-shadow: var(--sombra);
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .nivel-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sombra-hover);
+    }
+
+    .nivel-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--verde-claro);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .nivel-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--texto);
+      margin-bottom: 8px;
+    }
+
+    .nivel-card p {
+      font-size: 0.82rem;
+      color: var(--gris);
+      line-height: 1.55;
+    }
+
+    .pilares-srb {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .pilar-srb {
+      background: var(--blanco);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      box-shadow: var(--sombra);
+      transition: transform 0.2s;
+    }
+
+    .pilar-srb:hover { transform: translateY(-3px); }
+
+    .pilar-srb-icon {
+      width: 52px; height: 52px;
+      background: var(--verde-claro);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .pilar-srb h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--texto);
+      margin-bottom: 6px;
+    }
+
+    .pilar-srb p {
+      font-size: 0.875rem;
+      color: var(--gris);
+      line-height: 1.6;
+    }
+
+    /* CAM */
+    .cam-section { background: var(--verde-oscuro); color: var(--blanco); }
+
+    .cam-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .cam-intro h2 { color: var(--blanco); }
+    .cam-intro h2 em { color: rgba(196,136,47,0.9); }
+
+    .cam-intro p {
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .cam-marcos {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .cam-marco {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 20px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .cam-marco-abbr {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: rgba(196,136,47,0.9);
+      min-width: 52px;
+      flex-shrink: 0;
+    }
+
+    .cam-marco-text h5 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--blanco);
+      margin-bottom: 3px;
+    }
+
+    .cam-marco-text p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .cam-diferenciador {
+      background: rgba(196,136,47,0.12);
+      border: 1px solid rgba(196,136,47,0.3);
+      border-radius: var(--radio);
+      padding: 32px;
+    }
+
+    .cam-diferenciador h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--blanco);
+      margin-bottom: 16px;
+    }
+
+    .cam-diferenciador p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .cam-evidence {
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .cam-evidence h5 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 10px;
+    }
+
+    .cam-evidence p {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.6);
+      margin: 0;
+    }
+
+    /* EL VIAJE DE 4 MESES */
+    .viaje-section { background: var(--blanco); }
+
+    .timeline {
+      position: relative;
+      padding: 0 0 0 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 16px; bottom: 16px;
+      width: 2px;
+      background: var(--verde-claro);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 48px 40px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -44px; top: 8px;
+      width: 12px; height: 12px;
+      background: var(--verde);
+      border-radius: 50%;
+      border: 3px solid var(--blanco);
+      box-shadow: 0 0 0 3px var(--verde-claro);
+    }
+
+    .timeline-mes {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--dorado);
+      margin-bottom: 8px;
+    }
+
+    .timeline-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--texto);
+      margin-bottom: 10px;
+    }
+
+    .timeline-item p {
+      color: var(--gris);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      max-width: 520px;
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .t-tag {
+      background: var(--verde-claro);
+      color: var(--verde);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    /* CONDICIONES */
+    .condiciones-section { background: var(--crema); }
+
+    .condiciones-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .condicion-card {
+      background: var(--blanco);
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: var(--sombra);
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .condicion-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--sombra-hover);
+    }
+
+    .condicion-icon {
+      width: 52px; height: 52px;
+      background: var(--verde-claro);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+
+    .condicion-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--texto);
+      margin-bottom: 6px;
+    }
+
+    .condicion-card p {
+      font-size: 0.875rem;
+      color: var(--gris);
+      line-height: 1.6;
+    }
+
+    /* CTA FINAL */
+    .cta-section { background: var(--verde); color: var(--blanco); text-align: center; padding: 80px 24px; }
+
+    .cta-inner { max-width: 680px; margin: 0 auto; }
+
+    .cta-inner h2 {
+      color: var(--blanco);
+      margin-bottom: 16px;
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    }
+
+    .cta-inner h2 em { color: rgba(196,136,47,0.9); }
+
+    .cta-inner p {
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 36px;
+      font-size: 1.05rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-blanco {
+      background: var(--blanco);
+      color: var(--verde);
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+    }
+
+    .btn-blanco:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    .btn-ghost {
+      border: 1.5px solid rgba(255,255,255,0.4);
+      color: var(--blanco);
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--verde-oscuro);
+      color: rgba(255,255,255,0.75);
+      padding: 64px 24px 40px;
+    }
+
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--blanco);
+      margin-bottom: 12px;
+    }
+
+    .footer-logo span { color: rgba(196,136,47,0.8); }
+
+    .footer-tagline {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      max-width: 300px;
+    }
+
+    .footer-col h5 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--blanco); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ANIMATIONS */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .pilares-visual { order: -1; }
+      .niveles-grid { grid-template-columns: 1fr 1fr; }
+      .pilares-srb { grid-template-columns: 1fr; }
+      .cam-inner { grid-template-columns: 1fr; }
+      .condiciones-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .niveles-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .nav-links .hide-m { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">Bienestar<span>360</span></a>
+      <ul class="nav-links">
+        <li class="hide-m"><a href="#srb">El SRB</a></li>
+        <li class="hide-m"><a href="#cam">El CAM</a></li>
+        <li class="hide-m"><a href="#viaje">El programa</a></li>
+        <li><a href="/colegios.html#contacto" class="btn-nav">Comenzar</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">Metodología científica</div>
+        <h1>La ciencia del<br /><em>cambio real</em><br />en la salud familiar</h1>
+        <p class="hero-lead">Bienestar 360 no es otro programa de bienestar genérico. Combina un protocolo clínico validado con una capa de diseño conductual respaldada académicamente para lograr cambios que duran.</p>
+        <div class="hero-links">
+          <a href="#srb" class="btn-verde">Explorar la metodología</a>
+          <a href="/colegios.html" class="btn-outline">Ver el programa</a>
+        </div>
+      </div>
+      <div class="pilares-visual">
+        <div class="pilar-vis">
+          <div class="icon">🥗</div>
+          <h4>Nutrición</h4>
+          <p>Sin restricciones. Desde la biología.</p>
+        </div>
+        <div class="pilar-vis">
+          <div class="icon">😴</div>
+          <h4>Sueño</h4>
+          <p>Ritmo circadiano real de cada familia.</p>
+        </div>
+        <div class="pilar-vis">
+          <div class="icon">🏃</div>
+          <h4>Movimiento</h4>
+          <p>Ejercicio funcional y sostenible.</p>
+        </div>
+        <div class="pilar-vis">
+          <div class="icon">🧠</div>
+          <h4>Mente</h4>
+          <p>Gestión emocional y hábitos mentales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SRB -->
+  <section class="srb-section" id="srb">
+    <div class="container">
+      <div class="section-tag">Sistema de Reversión Biológica</div>
+      <h2>El<em> SRB</em>: trabajar<br />desde las causas raíz</h2>
+      <div class="srb-intro">
+        <p>El Sistema de Reversión Biológica es el protocolo clínico creado por el experto en bienestar Peter Álvarez. Su premisa central es que la mayoría de los problemas de salud crónicos — obesidad, fatiga, problemas de sueño, estrés crónico — no son el problema en sí mismos, sino síntomas de un desequilibrio biológico subyacente.</p>
+        <p>El SRB trabaja restituyendo ese equilibrio a través de 4 pilares interdependientes. Cuando los 4 pilares se abordan de forma integrada y personalizada, el cuerpo inicia un proceso de reversión biológica que los tratamientos aislados no pueden lograr.</p>
+      </div>
+
+      <div class="section-tag">Los 4 niveles de salud</div>
+      <div class="niveles-grid" style="margin-top: 24px;">
+        <div class="nivel-card fade-up">
+          <div class="nivel-num">01</div>
+          <h4>Salud celular</h4>
+          <p>La base. Nutrición a nivel celular, hidratación, equilibrio ácido-base. Lo que el cuerpo necesita para funcionar.</p>
+        </div>
+        <div class="nivel-card fade-up">
+          <div class="nivel-num">02</div>
+          <h4>Salud hormonal</h4>
+          <p>Regulación del cortisol, insulina y hormonas del sueño. El equilibrio hormonal determina energía, peso y estado de ánimo.</p>
+        </div>
+        <div class="nivel-card fade-up">
+          <div class="nivel-num">03</div>
+          <h4>Salud inflamatoria</h4>
+          <p>Reducción de la inflamación sistémica de bajo grado. Origen de la mayoría de enfermedades crónicas modernas.</p>
+        </div>
+        <div class="nivel-card fade-up">
+          <div class="nivel-num">04</div>
+          <h4>Salud mental y emocional</h4>
+          <p>El estado mental afecta directamente la biología. Gestión del estrés, patrones de pensamiento y bienestar emocional.</p>
+        </div>
+      </div>
+
+      <div class="section-tag" style="margin-top: 56px;">Los 4 pilares del SRB</div>
+      <div class="pilares-srb" style="margin-top: 24px;">
+        <div class="pilar-srb fade-up">
+          <div class="pilar-srb-icon">🥗</div>
+          <div>
+            <h4>Nutrición sin restricciones</h4>
+            <p>No se trata de eliminar alimentos sino de entender la biología detrás de lo que come cada familia. Ajustes inteligentes y sostenibles. Protocolos de ayuno intermitente adaptados cuando corresponde.</p>
+          </div>
+        </div>
+        <div class="pilar-srb fade-up">
+          <div class="pilar-srb-icon">😴</div>
+          <div>
+            <h4>Sueño y ritmo circadiano</h4>
+            <p>El sueño es el momento de mayor reparación biológica. Protocolos personalizados para optimizar la calidad y duración del sueño según el ritmo real de cada familia. Impacto directo en hormonal, inmune y cognitivo.</p>
+          </div>
+        </div>
+        <div class="pilar-srb fade-up">
+          <div class="pilar-srb-icon">🏃</div>
+          <div>
+            <h4>Movimiento funcional</h4>
+            <p>Ejercicio adaptado a la realidad de la familia, no a un ideal imposible. Movimiento que el cuerpo necesita y que la familia puede sostener. Sin gimnasio obligatorio. Sin rutinas de 2 horas.</p>
+          </div>
+        </div>
+        <div class="pilar-srb fade-up">
+          <div class="pilar-srb-icon">🧠</div>
+          <div>
+            <h4>El poder de la mente</h4>
+            <p>La biología del estrés, los hábitos de pensamiento y el estado emocional tienen consecuencias físicas medibles. Este pilar trabaja la conexión mente-cuerpo con herramientas prácticas para el día a día.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAM -->
+  <section class="cam-section" id="cam">
+    <div class="container">
+      <div class="cam-inner">
+        <div class="cam-intro">
+          <div class="section-tag" style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.15);">Componente de Acompañamiento Motivacional</div>
+          <h2>El<em> CAM</em>:<br />la capa que<br />sostiene el cambio</h2>
+          <p>El SRB define <em>qué</em> hacer. El CAM resuelve <em>por qué</em> la gente lo sigue haciendo. Es la diferencia entre un programa que funciona los primeros días y uno que genera cambios que duran meses y años.</p>
+          <p>El CAM es una capa de diseño conductual que trabaja los mecanismos psicológicos del cambio de hábitos: motivación, autoeficacia, ambivalencia, estadios de cambio, micro-decisiones y activación emocional.</p>
+
+          <div class="cam-marcos">
+            <div class="cam-marco">
+              <div class="cam-marco-abbr">TTM</div>
+              <div class="cam-marco-text">
+                <h5>Transtheoretical Model</h5>
+                <p>Estadios de cambio: el acompañamiento se adapta a donde está cada familia en su proceso de cambio.</p>
+              </div>
+            </div>
+            <div class="cam-marco">
+              <div class="cam-marco-abbr">COM-B</div>
+              <div class="cam-marco-text">
+                <h5>Capability, Opportunity, Motivation–Behavior</h5>
+                <p>El cambio ocurre cuando confluyen capacidad, oportunidad y motivación. El CAM trabaja los tres.</p>
+              </div>
+            </div>
+            <div class="cam-marco">
+              <div class="cam-marco-abbr">SDL</div>
+              <div class="cam-marco-text">
+                <h5>Self-Directed Learning</h5>
+                <p>La familia toma el rol activo en su proceso. El mentor guía, no impone. Mayor adherencia y autonomía.</p>
+              </div>
+            </div>
+            <div class="cam-marco">
+              <div class="cam-marco-abbr">HT</div>
+              <div class="cam-marco-text">
+                <h5>Habit Theory</h5>
+                <p>Formación de hábitos mediante bucles de señal–rutina–recompensa. Automatización del comportamiento saludable.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="cam-diferenciador">
+            <h3>¿Por qué el CAM es el factor diferenciador?</h3>
+            <p>La mayoría de los programas de salud fallan no porque su contenido sea incorrecto, sino porque no resuelven el problema del cambio de comportamiento. Una familia puede saber qué hacer y no hacerlo.</p>
+            <p>El CAM trabaja explícitamente los mecanismos psicológicos que determinan si el comportamiento cambia — y si el cambio se mantiene. Es activable o desactivable en el programa, lo que permite niveles diferenciados de intervención según cada familia.</p>
+            <div class="cam-evidence">
+              <h5>Respaldo académico</h5>
+              <p>Desarrollado y validado en tesis de Maestría en Tecnología Educativa — Universidad de Tartu, Estonia, 2026. Muestra: N=20 padres colombianos. Marco teórico: TTM, COM-B, SDL, Habit Theory, Transformative Learning.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EL VIAJE DE 4 MESES -->
+  <section class="viaje-section" id="viaje">
+    <div class="container">
+      <div class="section-tag">El programa</div>
+      <h2>El viaje de<br /><em>4 meses</em></h2>
+      <p class="section-lead">Cuatro meses no son arbitrarios. La investigación en neurociencia del comportamiento establece que entre 60 y 120 días son necesarios para consolidar cambios de hábitos a nivel biológico y conductual.</p>
+
+      <div class="timeline">
+        <div class="timeline-item fade-up">
+          <div class="timeline-mes">Mes 1 — Diagnóstico y base</div>
+          <h3>Entender antes de actuar</h3>
+          <p>Diagnóstico completo de la familia: hábitos actuales, ritmos, condiciones de salud, objetivos y estado emocional. Definición del perfil personalizado y primeros protocolos. El CAM identifica el estadio de cambio de cada familia y adapta el acompañamiento.</p>
+          <div class="timeline-tags">
+            <span class="t-tag">Diagnóstico inicial</span>
+            <span class="t-tag">Perfil familiar</span>
+            <span class="t-tag">Estadio de cambio</span>
+            <span class="t-tag">Primeros hábitos</span>
+          </div>
+        </div>
+        <div class="timeline-item fade-up">
+          <div class="timeline-mes">Mes 2 — Activación biológica</div>
+          <h3>Encender el proceso de reversión</h3>
+          <p>Se activan los 4 pilares del SRB de forma progresiva. Nutrición, sueño, movimiento y mente se trabajan de forma integrada. El cuerpo comienza a responder: más energía, mejor sueño, menos estrés percibido. Las familias empiezan a notar resultados.</p>
+          <div class="timeline-tags">
+            <span class="t-tag">4 pilares integrados</span>
+            <span class="t-tag">Primeros resultados</span>
+            <span class="t-tag">Motivación conductual</span>
+          </div>
+        </div>
+        <div class="timeline-item fade-up">
+          <div class="timeline-mes">Mes 3 — Consolidación</div>
+          <h3>Los hábitos se vuelven propios</h3>
+          <p>Los cambios empiezan a automatizarse. El CAM trabaja la etapa crítica de mantenimiento: cómo sostener el comportamiento cuando la motivación inicial baja. Se ajustan los protocolos según los resultados y las nuevas necesidades de la familia.</p>
+          <div class="timeline-tags">
+            <span class="t-tag">Automatización de hábitos</span>
+            <span class="t-tag">Ajuste de protocolos</span>
+            <span class="t-tag">Prevención de recaída</span>
+          </div>
+        </div>
+        <div class="timeline-item fade-up" style="padding-bottom: 0;">
+          <div class="timeline-mes">Mes 4 — Autonomía</div>
+          <h3>La familia como su propio motor</h3>
+          <p>El objetivo del programa no es crear dependencia, sino autonomía. Al finalizar el mes 4, la familia tiene las herramientas, los hábitos consolidados y la comprensión biológica para continuar sola. Este es el verdadero resultado del programa.</p>
+          <div class="timeline-tags">
+            <span class="t-tag">Autonomía familiar</span>
+            <span class="t-tag">Cambio biológico consolidado</span>
+            <span class="t-tag">Herramientas propias</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONDICIONES ABORDADAS -->
+  <section class="condiciones-section">
+    <div class="container">
+      <div class="section-tag">Condiciones que abordamos</div>
+      <h2>Desde la raíz,<br /><em>no el síntoma</em></h2>
+      <p class="section-lead">El SRB no trata enfermedades — trabaja el equilibrio biológico del que depende la salud. Estas son las condiciones en las que el programa tiene mayor impacto demostrado.</p>
+      <div class="condiciones-grid">
+        <div class="condicion-card fade-up">
+          <div class="condicion-icon">⚖️</div>
+          <div>
+            <h4>Obesidad infantil y familiar</h4>
+            <p>Abordada desde la nutrición celular, la regulación hormonal y los patrones de comportamiento alimentario. No dietas — biología y hábitos.</p>
+          </div>
+        </div>
+        <div class="condicion-card fade-up">
+          <div class="condicion-icon">🎯</div>
+          <div>
+            <h4>TDAH y concentración en niños</h4>
+            <p>El entorno familiar, la calidad del sueño de los padres y la dieta tienen impacto directo en la concentración y el comportamiento infantil.</p>
+          </div>
+        </div>
+        <div class="condicion-card fade-up">
+          <div class="condicion-icon">🌿</div>
+          <div>
+            <h4>Problemas de piel y alergias</h4>
+            <p>Muchas condiciones de piel tienen origen inflamatorio y alimentario. El SRB trabaja la base biológica que las genera.</p>
+          </div>
+        </div>
+        <div class="condicion-card fade-up">
+          <div class="condicion-icon">⚡</div>
+          <div>
+            <h4>Fatiga crónica en padres</h4>
+            <p>La fatiga crónica impacta la calidad del tiempo familiar, el trabajo y la salud mental. Origen frecuente: sueño, hormonal y nutrición.</p>
+          </div>
+        </div>
+        <div class="condicion-card fade-up">
+          <div class="condicion-icon">🧘</div>
+          <div>
+            <h4>Ansiedad y estrés parental</h4>
+            <p>El estrés crónico tiene consecuencias biológicas medibles. El SRB y el CAM trabajan juntos para reducir la carga alostática.</p>
+          </div>
+        </div>
+        <div class="condicion-card fade-up">
+          <div class="condicion-icon">🔄</div>
+          <div>
+            <h4>Problemas digestivos</h4>
+            <p>Síndrome de intestino irritable, reflujo, estreñimiento crónico — frecuentemente relacionados con inflamación, estrés y patrones alimentarios.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>¿Tu colegio quiere<br /><em>ofrecer esto</em> a sus familias?</h2>
+      <p>Sin costo para la institución. Implementación en días. Impacto medible en meses.</p>
+      <div class="cta-buttons">
+        <a href="/colegios.html#contacto" class="btn-blanco">Hablar con el equipo</a>
+        <a href="/aliados.html" class="btn-ghost">Soy aliado o financiador</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Bienestar<span>360</span></div>
+          <p class="footer-tagline">Cuerpo sano, mentes brillantes. Metodología científica para el bienestar familiar.</p>
+          <p style="font-size: 0.8rem; color: rgba(255,255,255,0.3);">Barranquilla, Colombia</p>
+        </div>
+        <div class="footer-col">
+          <h5>Metodología</h5>
+          <ul>
+            <li><a href="#srb">El SRB</a></li>
+            <li><a href="#cam">El CAM</a></li>
+            <li><a href="#viaje">El programa de 4 meses</a></li>
+            <li><a href="#condiciones">Condiciones</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contacto</h5>
+          <ul>
+            <li><a href="/colegios.html">Para colegios</a></li>
+            <li><a href="/aliados.html">Para aliados</a></li>
+            <li><a href="mailto:contacto@bienestar360.co">contacto@bienestar360.co</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Bienestar 360 SAS</span>
+        <a href="mailto:contacto@bienestar360.co" style="color: rgba(255,255,255,0.35); text-decoration: none;">contacto@bienestar360.co</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

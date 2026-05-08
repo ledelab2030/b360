@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bienestar 360 para Colegios — Cuida a las familias de tu comunidad</title>
+  <meta name="description" content="Un programa de bienestar familiar sin costo para el colegio. Diferenciación institucional, métricas de comunidad y familias más comprometidas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde:        #2B5F45;
+      --verde-oscuro: #1A3C2C;
+      --verde-claro:  #EAF5EE;
+      --dorado:       #C4882F;
+      --crema:        #F8F4EC;
+      --texto:        #1C2A22;
+      --gris:         #6B7C73;
+      --blanco:       #FFFFFF;
+      --sombra:       0 4px 24px rgba(27,60,44,0.08);
+      --sombra-hover: 0 12px 40px rgba(27,60,44,0.18);
+      --radio:        16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--crema);
+      color: var(--texto);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(248,244,236,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(43,95,69,0.1);
+      padding: 0 24px;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--verde);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--dorado); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--texto);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; color: var(--verde); }
+
+    .btn-nav {
+      background: var(--verde) !important;
+      color: var(--blanco) !important;
+      opacity: 1 !important;
+      padding: 10px 22px;
+      border-radius: 8px;
+    }
+
+    .btn-nav:hover { background: var(--verde-oscuro) !important; }
+
+    /* HERO */
+    .hero {
+      background: var(--verde-oscuro);
+      color: var(--blanco);
+      padding: 140px 24px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: 
+        radial-gradient(ellipse at 80% 20%, rgba(196,136,47,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(43,95,69,0.4) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 500;
+      line-height: 1.1;
+      max-width: 780px;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: rgba(196,136,47,0.9);
+    }
+
+    .hero-lead {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 600px;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn-primary {
+      background: var(--dorado);
+      color: var(--blanco);
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: #b07a28;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(196,136,47,0.4);
+    }
+
+    .btn-ghost {
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: var(--blanco);
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+
+    .btn-verde {
+      background: var(--verde);
+      color: var(--blanco);
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+    }
+
+    .btn-verde:hover {
+      background: var(--verde-oscuro);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(27,60,44,0.3);
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--verde);
+      color: var(--verde);
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background: var(--verde-claro);
+      transform: translateY(-2px);
+    }
+
+    /* STRIP DE STATS */
+    .stats-strip {
+      background: var(--blanco);
+      border-bottom: 1px solid rgba(43,95,69,0.08);
+    }
+
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+
+    .stat-item .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.75rem;
+      font-weight: 600;
+      color: var(--verde);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-item .lbl {
+      font-size: 0.82rem;
+      color: var(--gris);
+      line-height: 1.4;
+    }
+
+    /* SECTIONS */
+    section { padding: 96px 24px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--verde-claro);
+      color: var(--verde);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--texto);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    h2 em { font-style: italic; color: var(--verde); }
+
+    .section-lead {
+      font-size: 1.05rem;
+      color: var(--gris);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 56px;
+    }
+
+    /* CÓMO FUNCIONA */
+    .como-section { background: var(--crema); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .step-card {
+      background: var(--blanco);
+      border-radius: var(--radio);
+      padding: 36px 32px;
+      box-shadow: var(--sombra);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sombra-hover);
+    }
+
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: var(--verde-claro);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .step-icon {
+      font-size: 1.75rem;
+      margin-bottom: 16px;
+    }
+
+    .step-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--texto);
+      margin-bottom: 10px;
+    }
+
+    .step-card p {
+      font-size: 0.9rem;
+      color: var(--gris);
+      line-height: 1.65;
+    }
+
+    /* BENEFICIOS FAMILIAS */
+    .familias-section { background: var(--blanco); }
+
+    .beneficios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .beneficio-card {
+      padding: 28px;
+      background: var(--crema);
+      border-radius: 12px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .beneficio-card:hover {
+      box-shadow: var(--sombra);
+      transform: translateY(-2px);
+    }
+
+    .beneficio-icon {
+      font-size: 1.75rem;
+      margin-bottom: 14px;
+    }
+
+    .beneficio-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--texto);
+      margin-bottom: 8px;
+    }
+
+    .beneficio-card p {
+      font-size: 0.875rem;
+      color: var(--gris);
+      line-height: 1.6;
+    }
+
+    .condiciones-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 40px;
+    }
+
+    .condicion-tag {
+      background: var(--verde-claro);
+      color: var(--verde);
+      font-size: 0.83rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 100px;
+    }
+
+    /* VALOR PARA EL COLEGIO */
+    .colegio-section { background: var(--verde-oscuro); color: var(--blanco); }
+
+    .colegio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .colegio-intro h2 {
+      color: var(--blanco);
+    }
+
+    .colegio-intro h2 em { color: rgba(196,136,47,0.9); }
+
+    .colegio-intro p {
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 32px;
+      line-height: 1.75;
+    }
+
+    .valor-items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .valor-item {
+      display: flex;
+      gap: 20px;
+      padding: 24px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.2s;
+    }
+
+    .valor-item:hover { background: rgba(255,255,255,0.1); }
+
+    .valor-icon {
+      width: 48px; height: 48px;
+      background: rgba(196,136,47,0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .valor-text h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--blanco);
+      margin-bottom: 6px;
+    }
+
+    .valor-text p {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+
+    /* PRECIOS */
+    .precio-section { background: var(--crema); }
+
+    .precio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 860px;
+    }
+
+    .precio-card {
+      background: var(--blanco);
+      border-radius: var(--radio);
+      padding: 40px;
+      box-shadow: var(--sombra);
+      position: relative;
+    }
+
+    .precio-card.featured {
+      border: 2px solid var(--verde);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--verde);
+      color: var(--blanco);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .plan-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gris);
+      margin-bottom: 8px;
+    }
+
+    .plan-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.75rem;
+      font-weight: 600;
+      color: var(--texto);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .plan-price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--gris);
+    }
+
+    .plan-note {
+      font-size: 0.8rem;
+      color: var(--gris);
+      margin-bottom: 24px;
+    }
+
+    .plan-features {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .plan-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--texto);
+      margin-bottom: 10px;
+    }
+
+    .plan-features li::before {
+      content: '✓';
+      color: var(--verde);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .precio-nota {
+      background: var(--verde-claro);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-top: 24px;
+      font-size: 0.9rem;
+      color: var(--verde-oscuro);
+      line-height: 1.6;
+    }
+
+    /* TESTIMONIOS / PROCESO INSTITUCIONAL */
+    .proceso-section { background: var(--blanco); }
+
+    .proceso-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .proceso-steps::before {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: var(--verde-claro);
+      z-index: 0;
+    }
+
+    .proceso-step {
+      text-align: center;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .proceso-dot {
+      width: 64px; height: 64px;
+      background: var(--verde-claro);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.5rem;
+      border: 3px solid var(--blanco);
+      box-shadow: 0 0 0 4px var(--verde-claro);
+    }
+
+    .proceso-step h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--texto);
+      margin-bottom: 8px;
+    }
+
+    .proceso-step p {
+      font-size: 0.82rem;
+      color: var(--gris);
+      line-height: 1.5;
+    }
+
+    /* CONTACTO */
+    .contacto-section {
+      background: var(--crema);
+      padding: 96px 24px;
+    }
+
+    .contacto-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contacto-inner h2 { text-align: center; }
+
+    .contacto-inner .section-lead {
+      text-align: center;
+      margin: 0 auto 40px;
+    }
+
+    .contacto-card {
+      background: var(--blanco);
+      border-radius: var(--radio);
+      padding: 48px;
+      box-shadow: var(--sombra-hover);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .form-group label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--texto);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      border: 1.5px solid rgba(43,95,69,0.15);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      color: var(--texto);
+      background: var(--crema);
+      transition: border-color 0.2s;
+      outline: none;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--verde);
+      background: var(--blanco);
+    }
+
+    .form-group textarea { min-height: 110px; resize: vertical; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--verde);
+      color: var(--blanco);
+      border: none;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover {
+      background: var(--verde-oscuro);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(27,60,44,0.25);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--verde-oscuro);
+      color: rgba(255,255,255,0.75);
+      padding: 64px 24px 40px;
+    }
+
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--blanco);
+      margin-bottom: 12px;
+    }
+
+    .footer-logo span { color: rgba(196,136,47,0.8); }
+
+    .footer-tagline {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      max-width: 300px;
+    }
+
+    .footer-col h5 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--blanco); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* FADE ANIMATIONS */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .beneficios-grid { grid-template-columns: 1fr 1fr; }
+      .colegio-grid { grid-template-columns: 1fr; }
+      .precio-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .proceso-steps { grid-template-columns: 1fr 1fr; }
+      .proceso-steps::before { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .beneficios-grid { grid-template-columns: 1fr; }
+      .proceso-steps { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .nav-links .hide-m { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">Bienestar<span>360</span></a>
+      <ul class="nav-links">
+        <li class="hide-m"><a href="#como">Cómo funciona</a></li>
+        <li class="hide-m"><a href="#beneficios">Beneficios</a></li>
+        <li class="hide-m"><a href="#precio">Precios</a></li>
+        <li><a href="#contacto" class="btn-nav">Agendar conversación</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">Para instituciones educativas</div>
+      <h1>Cuida a las familias de<br /><em>tu comunidad.</em></h1>
+      <p class="hero-lead">Un programa de bienestar familiar con respaldo científico. Sin costo para el colegio. Con impacto real y medible para cada familia que lo vive.</p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn-primary">Quiero conocer más</a>
+        <a href="#como" class="btn-ghost">Cómo funciona →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="stats-inner">
+      <div class="stat-item fade-up">
+        <div class="num">$0</div>
+        <div class="lbl">Costo para el colegio</div>
+      </div>
+      <div class="stat-item fade-up">
+        <div class="num">4</div>
+        <div class="lbl">Meses de acompañamiento continuo</div>
+      </div>
+      <div class="stat-item fade-up">
+        <div class="num">100%</div>
+        <div class="lbl">Personalizado para cada familia</div>
+      </div>
+      <div class="stat-item fade-up">
+        <div class="num">WhatsApp</div>
+        <div class="lbl">Sin apps adicionales</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="como-section" id="como">
+    <div class="container">
+      <div class="section-tag">El proceso</div>
+      <h2>Simple como una<br /><em>conversación</em></h2>
+      <p class="section-lead">Sin apps adicionales. Sin citas médicas. Sin horarios rígidos. El bienestar de cada familia, al ritmo de su vida.</p>
+      <div class="steps-grid">
+        <div class="step-card fade-up">
+          <div class="step-num">01</div>
+          <div class="step-icon">📋</div>
+          <h3>Diagnóstico inicial</h3>
+          <p>La familia completa un formulario personalizado sobre rutinas, hábitos, objetivos y estado de salud. En minutos tenemos un perfil completo para iniciar el acompañamiento.</p>
+        </div>
+        <div class="step-card fade-up">
+          <div class="step-num">02</div>
+          <div class="step-icon">💬</div>
+          <h3>Acompañamiento por WhatsApp</h3>
+          <p>El mentor de bienestar acompaña a la familia directamente por WhatsApp. Preguntas, ajustes, orientación y motivación cuando más lo necesitan, sin interrumpir la rutina familiar.</p>
+        </div>
+        <div class="step-card fade-up">
+          <div class="step-num">03</div>
+          <div class="step-icon">🌱</div>
+          <h3>Cambios biológicos reales</h3>
+          <p>En 4 meses de acompañamiento constante, los cambios se consolidan a nivel biológico. No dietas. No esfuerzo heroico. Hábitos reales que la familia mantiene sola.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS PARA LAS FAMILIAS -->
+  <section class="familias-section" id="beneficios">
+    <div class="container">
+      <div class="section-tag">Para las familias de tu colegio</div>
+      <h2>Un programa para<br /><em>toda la familia</em></h2>
+      <p class="section-lead">El bienestar de los padres impacta directamente en el aprendizaje, el comportamiento y la salud mental de sus hijos.</p>
+      <div class="beneficios-grid">
+        <div class="beneficio-card fade-up">
+          <div class="beneficio-icon">🥗</div>
+          <h4>Nutrición sin restricciones</h4>
+          <p>Ajustes inteligentes a lo que ya comen. No se elimina, se mejora desde la biología. Resultados sin sacrificio.</p>
+        </div>
+        <div class="beneficio-card fade-up">
+          <div class="beneficio-icon">😴</div>
+          <h4>Sueño reparador</h4>
+          <p>Protocolos adaptados al ritmo circadiano real de cada familia. Más descanso, más energía, mejor estado de ánimo.</p>
+        </div>
+        <div class="beneficio-card fade-up">
+          <div class="beneficio-icon">🧠</div>
+          <h4>Gestión del estrés</h4>
+          <p>Herramientas prácticas para el día a día de padres con hijos en edad escolar. Calma real, no meditación forzada.</p>
+        </div>
+        <div class="beneficio-card fade-up">
+          <div class="beneficio-icon">⚡</div>
+          <h4>Energía sostenida</h4>
+          <p>Más energía para estar presentes en casa y en la vida. No solo presentes físicamente — atentos y conectados.</p>
+        </div>
+        <div class="beneficio-card fade-up">
+          <div class="beneficio-icon">🏃</div>
+          <h4>Movimiento funcional</h4>
+          <p>Ejercicio adaptado a la realidad de cada familia. Sin gimnasio obligatorio, sin rutinas imposibles de sostener.</p>
+        </div>
+        <div class="beneficio-card fade-up">
+          <div class="beneficio-icon">❤️</div>
+          <h4>Salud familiar integral</h4>
+          <p>Un programa que cuida a toda la familia: padres e hijos. El bienestar de los padres es el primer entorno de aprendizaje.</p>
+        </div>
+      </div>
+      <div class="condiciones-row">
+        <span class="condicion-tag">Obesidad infantil y familiar</span>
+        <span class="condicion-tag">TDAH y concentración</span>
+        <span class="condicion-tag">Problemas de piel y alergias</span>
+        <span class="condicion-tag">Fatiga crónica en padres</span>
+        <span class="condicion-tag">Ansiedad y estrés parental</span>
+        <span class="condicion-tag">Problemas digestivos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALOR PARA EL COLEGIO -->
+  <section class="colegio-section">
+    <div class="container">
+      <div class="colegio-grid">
+        <div class="colegio-intro">
+          <div class="section-tag" style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.15);">El valor para tu institución</div>
+          <h2>Un colegio que cuida<br />a sus familias<br /><em>construye comunidad.</em></h2>
+          <p>Las instituciones que ofrecen Bienestar 360 entregan a sus familias un beneficio tangible, diferenciador y de alto valor percibido — sin ningún costo operativo ni inversión institucional.</p>
+          <a href="#contacto" class="btn-primary" style="margin-top: 8px;">Quiero que mi colegio lo ofrezca</a>
+        </div>
+        <div class="valor-items">
+          <div class="valor-item fade-up">
+            <div class="valor-icon">💰</div>
+            <div class="valor-text">
+              <h4>Sin costo para el colegio</h4>
+              <p>El costo del programa es absorbido directamente por las familias que deciden participar. La institución ofrece el beneficio sin inversión.</p>
+            </div>
+          </div>
+          <div class="valor-item fade-up">
+            <div class="valor-icon">🏆</div>
+            <div class="valor-text">
+              <h4>Diferenciación real</h4>
+              <p>Los colegios que cuidan el bienestar familiar completo generan mayor lealtad, mejor reputación y una propuesta de valor única en el mercado.</p>
+            </div>
+          </div>
+          <div class="valor-item fade-up">
+            <div class="valor-icon">📊</div>
+            <div class="valor-text">
+              <h4>Datos de tu comunidad</h4>
+              <p>El colegio recibe métricas de bienestar agregadas y anónimas de su comunidad para tomar mejores decisiones pedagógicas e institucionales.</p>
+            </div>
+          </div>
+          <div class="valor-item fade-up">
+            <div class="valor-icon">🚀</div>
+            <div class="valor-text">
+              <h4>Implementación inmediata</h4>
+              <p>Sin infraestructura adicional, sin capacitaciones largas. Operamos sobre WhatsApp, el canal que todas las familias ya usan.</p>
+            </div>
+          </div>
+          <div class="valor-item fade-up">
+            <div class="valor-icon">📚</div>
+            <div class="valor-text">
+              <h4>Respaldo científico</h4>
+              <p>Metodología validada académicamente. Tu colegio ofrece un programa con sustento clínico, no una app de bienestar genérica.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO PARA EL COLEGIO -->
+  <section class="proceso-section">
+    <div class="container">
+      <div class="section-tag">Implementación</div>
+      <h2>Estar activos en<br /><em>días, no meses</em></h2>
+      <p class="section-lead">El proceso de activación con un colegio es rápido, sin fricción y sin carga operativa para la institución.</p>
+      <div class="proceso-steps">
+        <div class="proceso-step fade-up">
+          <div class="proceso-dot">🤝</div>
+          <h4>Alianza institucional</h4>
+          <p>Reunión con el rector y firma del acuerdo de alianza. Sin costo, sin compromisos de volumen.</p>
+        </div>
+        <div class="proceso-step fade-up">
+          <div class="proceso-dot">📢</div>
+          <h4>Comunicación a familias</h4>
+          <p>Proveemos las piezas de comunicación para que el colegio invite a sus familias a participar.</p>
+        </div>
+        <div class="proceso-step fade-up">
+          <div class="proceso-dot">📝</div>
+          <h4>Registro y diagnóstico</h4>
+          <p>Las familias interesadas completan su diagnóstico inicial. Proceso guiado, simple y digital.</p>
+        </div>
+        <div class="proceso-step fade-up">
+          <div class="proceso-dot">💬</div>
+          <h4>Acompañamiento activo</h4>
+          <p>El programa arranca. El colegio recibe reportes periódicos de participación y bienestar general.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECIOS -->
+  <section class="precio-section" id="precio">
+    <div class="container">
+      <div class="section-tag">Precios para familias</div>
+      <h2>Inversión en<br /><em>salud real</em></h2>
+      <p class="section-lead">El programa tiene costo para las familias, no para el colegio. Dos planes según el nivel de acompañamiento que cada familia necesita.</p>
+      <div class="precio-grid">
+        <div class="precio-card">
+          <div class="plan-name">Plan Base</div>
+          <div class="plan-price">$40.000<span> COP/mes</span></div>
+          <div class="plan-note">Permanencia mínima 4 meses</div>
+          <ul class="plan-features">
+            <li>Diagnóstico inicial completo</li>
+            <li>Acompañamiento por WhatsApp</li>
+            <li>Protocolo SRB personalizado</li>
+            <li>Seguimiento de hábitos</li>
+            <li>Acceso al mentor de bienestar</li>
+          </ul>
+          <a href="#contacto" class="btn-outline">Consultar para mi colegio</a>
+        </div>
+        <div class="precio-card featured">
+          <div class="featured-badge">Mayor impacto</div>
+          <div class="plan-name">Plan Plus</div>
+          <div class="plan-price" style="color: var(--verde);">Próximamente</div>
+          <div class="plan-note">Con CAM activado — mayor conversión y fidelidad</div>
+          <ul class="plan-features">
+            <li>Todo lo del Plan Base</li>
+            <li>Componente de Acompañamiento Motivacional (CAM)</li>
+            <li>Diseño conductual para cambio sostenido</li>
+            <li>Mayor tasa de adherencia</li>
+            <li>Resultados más rápidos y duraderos</li>
+          </ul>
+          <a href="#contacto" class="btn-verde">Saber cuándo estará disponible</a>
+        </div>
+      </div>
+      <div class="precio-nota">
+        <strong>Para el colegio: $0.</strong> El programa se ofrece como beneficio a las familias. La inversión la asume directamente la familia participante, no la institución.
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contacto-section" id="contacto">
+    <div class="contacto-inner">
+      <div class="section-tag">Agenda una conversación</div>
+      <h2>¿Tu colegio quiere<br /><em>ser parte?</em></h2>
+      <p class="section-lead">Cuéntanos sobre tu institución. Te contactamos en menos de 24 horas.</p>
+      <div class="contacto-card">
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label>Cargo</label>
+              <input type="text" placeholder="Rector, Coordinador..." required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Nombre del colegio</label>
+            <input type="text" placeholder="Institución Educativa..." required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>WhatsApp</label>
+              <input type="tel" placeholder="+57 300 000 0000" required />
+            </div>
+            <div class="form-group">
+              <label>Correo institucional</label>
+              <input type="email" placeholder="nombre@colegio.edu.co" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Ciudad</label>
+            <select>
+              <option>Barranquilla</option>
+              <option>Bogotá</option>
+              <option>Medellín</option>
+              <option>Cartagena</option>
+              <option>Otra ciudad</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>¿Qué te motivó a contactarnos?</label>
+            <textarea placeholder="Cuéntanos brevemente..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Agendar conversación →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Bienestar<span>360</span></div>
+          <p class="footer-tagline">Cuerpo sano, mentes brillantes. Programa de bienestar familiar con metodología científica para comunidades educativas.</p>
+          <p style="font-size: 0.8rem; color: rgba(255,255,255,0.3);">Barranquilla, Colombia</p>
+        </div>
+        <div class="footer-col">
+          <h5>Programa</h5>
+          <ul>
+            <li><a href="/metodologia.html">Metodología</a></li>
+            <li><a href="#como">Cómo funciona</a></li>
+            <li><a href="#precio">Precios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Alianzas</h5>
+          <ul>
+            <li><a href="/aliados.html">Para aliados</a></li>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="mailto:contacto@bienestar360.co">contacto@bienestar360.co</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Bienestar 360 SAS</span>
+        <a href="mailto:contacto@bienestar360.co" style="color: rgba(255,255,255,0.35); text-decoration: none;">contacto@bienestar360.co</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Form handler placeholder
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.innerHTML = '<div style="text-align:center;padding:40px 0;"><div style="font-size:2rem;margin-bottom:16px;">✅</div><h3 style="font-family:Cormorant Garamond,serif;font-size:1.5rem;color:#1C2A22;margin-bottom:8px;">¡Recibimos tu mensaje!</h3><p style="color:#6B7C73;">Te contactamos en menos de 24 horas.</p></div>';
+    });
+  </script>
+</body>
+</html>
