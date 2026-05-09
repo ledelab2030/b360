@@ -1244,41 +1244,41 @@
       <h2>¿Vemos si hay<br /><em>sinergias?</em></h2>
       <p class="section-lead">Sin presión. Una conversación inicial para entender si hay alineación entre lo que buscas y lo que construimos.</p>
       <div class="contacto-card">
-        <form>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Nombre</label>
-              <input type="text" placeholder="Tu nombre" required />
-            </div>
-            <div class="form-group">
-              <label>Organización</label>
-              <input type="text" placeholder="Fundación, fondo, empresa..." />
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Correo electrónico</label>
-            <input type="email" placeholder="nombre@organizacion.com" required />
-          </div>
-          <div class="form-group">
-            <label>WhatsApp (opcional)</label>
-            <input type="tel" placeholder="+xx xxx xxx xxxx" />
-          </div>
-          <div class="form-group">
-            <label>¿Qué tipo de alianza te interesa explorar?</label>
-            <select>
-              <option>Financiación / Grant</option>
-              <option>Cooperación académica</option>
-              <option>Inversión de impacto</option>
-              <option>Alianza comercial</option>
-              <option>Otro</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Cuéntanos brevemente</label>
-            <textarea placeholder="¿Qué te llamó la atención de Bienestar 360? ¿Qué tipo de proyectos apoyas normalmente?"></textarea>
-          </div>
-          <button type="submit" class="form-submit">Enviar y comenzar la conversación →</button>
-        </form>
+        <form action="https://formspree.io/f/mkoyqepw" method="POST">
+  <div class="form-row">
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" name="nombre" placeholder="Tu nombre" required />
+    </div>
+    <div class="form-group">
+      <label>Organización</label>
+      <input type="text" name="organizacion" placeholder="Fundación, fondo, empresa..." />
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Correo electrónico</label>
+    <input type="email" name="email" placeholder="nombre@organizacion.com" required />
+  </div>
+  <div class="form-group">
+    <label>WhatsApp (opcional)</label>
+    <input type="tel" name="whatsapp" placeholder="+xx xxx xxx xxxx" />
+  </div>
+  <div class="form-group">
+    <label>¿Qué tipo de alianza te interesa explorar?</label>
+    <select name="tipo_alianza">
+      <option>Financiación / Grant</option>
+      <option>Cooperación académica</option>
+      <option>Inversión de impacto</option>
+      <option>Alianza comercial</option>
+      <option>Otro</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Cuéntanos brevemente</label>
+    <textarea name="mensaje" placeholder="¿Qué te llamó la atención de Bienestar 360? ¿Qué tipo de proyectos apoyas normalmente?"></textarea>
+  </div>
+  <button type="submit" class="form-submit">Enviar y comenzar la conversación →</button>
+</form>
       </div>
     </div>
   </section>
