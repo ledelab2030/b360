@@ -1324,10 +1324,17 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    document.querySelector('form').addEventListener('submit', function() {
-  setTimeout(() => {
-    this.innerHTML = '<div style="text-align:center;padding:40px 0;"><div style="font-size:2rem;margin-bottom:16px;">✅</div><h3 style="font-family:Cormorant Garamond,serif;font-size:1.5rem;color:#1C2A22;margin-bottom:8px;">¡Recibimos tu mensaje!</h3><p style="color:#6B7C73;">Te contactamos en menos de 24 horas.</p></div>';
-  }, 500);
+   document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  fetch(this.action, {
+    method: 'POST',
+    body: new FormData(this),
+    headers: { 'Accept': 'application/json' }
+  }).then(r => {
+    if (r.ok) {
+      this.innerHTML = '<div style="text-align:center;padding:40px 0;"><div style="font-size:2rem;margin-bottom:16px;">✅</div><h3 style="font-family:Cormorant Garamond,serif;font-size:1.5rem;color:#1C2A22;margin-bottom:8px;">¡Mensaje recibido!</h3><p style="color:#6B7C73;">Te contactaremos en menos de 48 horas para coordinar una llamada.</p></div>';
+    }
+  });
 });
   </script>
 </body>
