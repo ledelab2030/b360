@@ -1154,11 +1154,11 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // Form handler placeholder
-    document.querySelector('form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      this.innerHTML = '<div style="text-align:center;padding:40px 0;"><div style="font-size:2rem;margin-bottom:16px;">✅</div><h3 style="font-family:Cormorant Garamond,serif;font-size:1.5rem;color:#1C2A22;margin-bottom:8px;">¡Recibimos tu mensaje!</h3><p style="color:#6B7C73;">Te contactamos en menos de 24 horas.</p></div>';
-    });
+    document.querySelector('form').addEventListener('submit', function() {
+  setTimeout(() => {
+    this.innerHTML = '<div style="text-align:center;padding:40px 0;"><div style="font-size:2rem;margin-bottom:16px;">✅</div><h3 style="font-family:Cormorant Garamond,serif;font-size:1.5rem;color:#1C2A22;margin-bottom:8px;">¡Recibimos tu mensaje!</h3><p style="color:#6B7C73;">Te contactamos en menos de 24 horas.</p></div>';
+  }, 500);
+});
   </script>
 </body>
 </html>
