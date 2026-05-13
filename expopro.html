@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bienestar 360 — Salud familiar como inversión de impacto</title>
+  <meta name="description" content="Un modelo escalable de bienestar familiar para comunidades educativas en Colombia. Desde Barranquilla para Latinoamérica." />
+  <meta property="og:title" content="Bienestar 360 — Salud familiar como inversión de impacto" />
+  <meta property="og:description" content="Programa de bienestar familiar con metodología propia, distribuido a través de colegios. Creciendo desde Barranquilla." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde:        #2B5F45;
+      --verde-oscuro: #1A3C2C;
+      --verde-claro:  #EAF5EE;
+      --dorado:       #C4882F;
+      --dorado-claro: #F5E6CC;
+      --crema:        #F8F4EC;
+      --texto:        #1C2A22;
+      --gris:         #6B7C73;
+      --blanco:       #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--crema);
+      color: var(--texto);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─── */
+    .site-header {
+      background: var(--crema);
+      padding: 20px 24px;
+      text-align: center;
+      border-bottom: 1px solid rgba(43,95,69,0.1);
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--verde);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .logo span { color: var(--dorado); }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--verde-oscuro);
+      color: var(--blanco);
+      padding: 64px 24px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,136,47,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(43,95,69,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .evento-badge {
+      display: inline-block;
+      background: rgba(196,136,47,0.2);
+      border: 1px solid rgba(196,136,47,0.4);
+      color: #E5A84A;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 7vw, 3.4rem);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: #E5A84A;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.78);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--dorado);
+      color: var(--blanco);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 100px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 20px rgba(196,136,47,0.35);
+    }
+
+    .hero-cta:hover {
+      background: #B07828;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(196,136,47,0.45);
+    }
+
+    /* ─── INTRO ─── */
+    .intro {
+      padding: 56px 24px;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .intro h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-weight: 500;
+      color: var(--verde);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .intro p {
+      color: var(--gris);
+      font-size: 1rem;
+      font-weight: 300;
+    }
+
+    /* ─── MODELO ─── */
+    .modelo {
+      background: var(--verde-claro);
+      padding: 48px 24px;
+    }
+
+    .modelo-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 20px;
+    }
+
+    .modelo h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 500;
+      color: var(--verde-oscuro);
+      line-height: 1.25;
+      margin-bottom: 28px;
+    }
+
+    .modelo-pasos {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .paso {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(43,95,69,0.12);
+    }
+
+    .paso:last-child { border-bottom: none; }
+
+    .paso-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--verde);
+      color: var(--blanco);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .paso-texto strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--verde-oscuro);
+      margin-bottom: 4px;
+    }
+
+    .paso-texto p {
+      font-size: 0.9rem;
+      color: var(--gris);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    /* ─── PILARES ─── */
+    .pilares {
+      padding: 56px 24px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .pilares h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 500;
+      color: var(--verde);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .pilares .sub {
+      font-size: 0.9rem;
+      color: var(--gris);
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+
+    .pilares-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .pilar-card {
+      background: var(--blanco);
+      border-radius: 14px;
+      padding: 20px 16px;
+      border: 1px solid rgba(43,95,69,0.08);
+      box-shadow: 0 2px 12px rgba(27,60,44,0.06);
+    }
+
+    .pilar-icon {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .pilar-card strong {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--verde-oscuro);
+      margin-bottom: 4px;
+    }
+
+    .pilar-card p {
+      font-size: 0.8rem;
+      color: var(--gris);
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    /* ─── TRACCIÓN ─── */
+    .traccion {
+      background: var(--verde-oscuro);
+      color: var(--blanco);
+      padding: 56px 24px;
+    }
+
+    .traccion-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .traccion .section-label { color: #E5A84A; }
+
+    .traccion h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 500;
+      line-height: 1.25;
+      margin-bottom: 32px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 20px 16px;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #E5A84A;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      line-height: 1.3;
+    }
+
+    .traccion-detalle {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 300;
+      line-height: 1.6;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+    }
+
+    /* ─── OPORTUNIDAD ─── */
+    .oportunidad {
+      padding: 56px 24px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .oportunidad h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 500;
+      color: var(--verde);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .oportunidad p {
+      font-size: 0.95rem;
+      color: var(--gris);
+      font-weight: 300;
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .oportunidad-items {
+      list-style: none;
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .oportunidad-items li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--texto);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .oportunidad-items li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--dorado);
+      margin-top: 8px;
+    }
+
+    /* ─── EQUIPO ─── */
+    .equipo {
+      background: var(--dorado-claro);
+      padding: 48px 24px;
+    }
+
+    .equipo-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .equipo h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 4.5vw, 1.8rem);
+      font-weight: 500;
+      color: var(--verde-oscuro);
+      margin-bottom: 24px;
+    }
+
+    .equipo-miembros {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .miembro {
+      background: var(--blanco);
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid rgba(196,136,47,0.15);
+    }
+
+    .miembro strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--verde-oscuro);
+      margin-bottom: 4px;
+    }
+
+    .miembro p {
+      font-size: 0.85rem;
+      color: var(--gris);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    /* ─── CTA FINAL ─── */
+    .cta-final {
+      background: var(--verde);
+      color: var(--blanco);
+      padding: 64px 24px;
+      text-align: center;
+    }
+
+    .cta-final h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 6vw, 2.8rem);
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .cta-final h2 em {
+      font-style: italic;
+      color: #E5A84A;
+    }
+
+    .cta-final p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+      margin-bottom: 36px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-botones {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: var(--blanco);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 100px;
+      width: 100%;
+      max-width: 320px;
+      justify-content: center;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+    }
+
+    .btn-wa:hover {
+      background: #1DB954;
+      transform: translateY(-2px);
+    }
+
+    .btn-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: var(--blanco);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 13px 28px;
+      border-radius: 100px;
+      width: 100%;
+      max-width: 320px;
+      justify-content: center;
+      transition: all 0.25s ease;
+    }
+
+    .btn-email:hover {
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-2px);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--verde-oscuro);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+      font-weight: 300;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+    }
+
+    /* ─── ANIMACIONES ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="https://bienestar360.co" class="logo">Bienestar <span>360</span></a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="evento-badge">ExpoProBarranquilla 2026</div>
+    <h1>La familia sana<br>es una <em>ventaja</em><br>competitiva</h1>
+    <p>Un modelo escalable de bienestar familiar que llega a donde más importa: el hogar, a través del colegio.</p>
+    <a href="#contacto" class="hero-cta">
+      Conversemos →
+    </a>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <h2 class="fade-up">Bienestar 360 en una frase</h2>
+    <p class="fade-up delay-1">Acompañamos a familias de comunidades educativas en Colombia a transformar sus hábitos de salud — nutrición, sueño, movimiento y manejo del estrés — con una metodología propia de probada eficacia y acompañamiento continuo y personalizado.</p>
+  </section>
+
+  <!-- MODELO -->
+  <section class="modelo">
+    <div class="modelo-inner">
+      <p class="section-label fade-up">El modelo</p>
+      <h2 class="fade-up delay-1">El colegio es el canal.<br>La familia, el cliente.</h2>
+      <div class="modelo-pasos">
+        <div class="paso fade-up delay-1">
+          <div class="paso-num">1</div>
+          <div class="paso-texto">
+            <strong>Alianza con el colegio</strong>
+            <p>El colegio nos presenta a sus familias. Sin costo para la institución. Beneficio tangible para su comunidad y su reputación.</p>
+          </div>
+        </div>
+        <div class="paso fade-up delay-2">
+          <div class="paso-num">2</div>
+          <div class="paso-texto">
+            <strong>Diagnóstico familiar personalizado</strong>
+            <p>Cada familia recibe un análisis de su estilo de vida basado en el Sistema de Reversión Biológica — la metodología que sustenta el programa.</p>
+          </div>
+        </div>
+        <div class="paso fade-up delay-3">
+          <div class="paso-num">3</div>
+          <div class="paso-texto">
+            <strong>Acompañamiento continuo</strong>
+            <p>Orientación diaria vía WhatsApp. Hábitos construidos paso a paso, sin dietas extremas ni rutinas imposibles.</p>
+          </div>
+        </div>
+        <div class="paso fade-up delay-4">
+          <div class="paso-num">4</div>
+          <div class="paso-texto">
+            <strong>Suscripción familiar mensual</strong>
+            <p>Las familias pagan por el servicio de acompañamiento. El colegio lo avala. La relación de confianza ya existe.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILARES -->
+  <section class="pilares">
+    <p class="section-label fade-up">La metodología</p>
+    <h2 class="fade-up delay-1">Cuatro pilares,<br>un sistema.</h2>
+    <p class="sub fade-up delay-2">El Sistema de Reversión Biológica (SRB) aborda la salud familiar de forma integral y secuencial.</p>
+    <div class="pilares-grid">
+      <div class="pilar-card fade-up delay-1">
+        <span class="pilar-icon">🥗</span>
+        <strong>Nutrición real</strong>
+        <p>Alimentación basada en alimentos naturales adaptada al contexto colombiano.</p>
+      </div>
+      <div class="pilar-card fade-up delay-2">
+        <span class="pilar-icon">😴</span>
+        <strong>Sueño reparador</strong>
+        <p>Hábitos de sueño como base de la recuperación metabólica.</p>
+      </div>
+      <div class="pilar-card fade-up delay-3">
+        <span class="pilar-icon">🏃</span>
+        <strong>Movimiento</strong>
+        <p>Actividad física sostenible y adaptada al ritmo de cada familia.</p>
+      </div>
+      <div class="pilar-card fade-up delay-4">
+        <span class="pilar-icon">🧠</span>
+        <strong>Mente y estrés</strong>
+        <p>Gestión emocional como palanca del cambio de hábitos duradero.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRACCIÓN -->
+  <section class="traccion">
+    <div class="traccion-inner">
+      <p class="section-label fade-up">Dónde estamos</p>
+      <h2 class="fade-up delay-1">Construyendo tracción<br>en Barranquilla.</h2>
+      <div class="stats-grid">
+        <div class="stat-card fade-up delay-1">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Colegios en conversación activa</div>
+        </div>
+        <div class="stat-card fade-up delay-2">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Países en la estructura del proyecto</div>
+        </div>
+        <div class="stat-card fade-up delay-3">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Pilares de bienestar integrados</div>
+        </div>
+        <div class="stat-card fade-up delay-4">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Años de metodología validada</div>
+        </div>
+      </div>
+      <p class="traccion-detalle fade-up">Operamos con infraestructura propia desarrollada desde Estonia (LedeLab Group OÜ) y metodología validada en Colombia por el especialista en bienestar y reversión biológica Peter Álvarez. El programa se entrega directamente a las familias, todos los días, de forma personalizada.</p>
+    </div>
+  </section>
+
+  <!-- OPORTUNIDAD -->
+  <section class="oportunidad">
+    <p class="section-label fade-up">Por qué ahora</p>
+    <h2 class="fade-up delay-1">Momento de<br>expansión.</h2>
+    <p class="fade-up delay-2">Estamos en la fase de escalar el modelo en Barranquilla y preparar la replicación hacia otras ciudades de Colombia. Buscamos aliados estratégicos que compartan nuestra visión: que la salud familiar es la inversión con mayor retorno social y económico en una comunidad.</p>
+    <ul class="oportunidad-items">
+      <li class="fade-up delay-2">Modelo de negocio validado con un canal de distribución de costo cero para el programa.</li>
+      <li class="fade-up delay-3">Estructura legal constituida en Colombia y Estonia, lista para recibir fondos locales e internacionales.</li>
+      <li class="fade-up delay-3">Respaldo académico: Universidad de Tartu (Estonia), TU München y Bologna Business School.</li>
+      <li class="fade-up delay-4">Rutas activas de financiación: Ruta N, iNNpulsa, fondos europeos de innovación social.</li>
+    </ul>
+  </section>
+
+  <!-- EQUIPO -->
+  <section class="equipo">
+    <div class="equipo-inner">
+      <p class="section-label fade-up">El equipo</p>
+      <h2 class="fade-up delay-1">Dos fundadores.<br>Una misión.</h2>
+      <div class="equipo-miembros">
+        <div class="miembro fade-up delay-2">
+          <strong>Peter Álvarez — Fundador & Director de Metodología</strong>
+          <p>Especialista en bienestar y reversión biológica con más de una década acompañando familias en Colombia. Creador del Sistema de Reversión Biológica (SRB).</p>
+        </div>
+        <div class="miembro fade-up delay-3">
+          <strong>Leonardo De la Hoz — Cofundador & Director de Tecnología</strong>
+          <p>Executive Master en Gestión de Transición hacia la Sostenibilidad (Bologna). MA en Tecnología Educativa (Tartu). Fundador de LedeLab Group OÜ (Estonia). Sprint de impacto social en TU München.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final" id="contacto">
+    <h2>¿Hablamos en<br><em>ExpoProBarranquilla?</em></h2>
+    <p>Agenda un espacio, escríbenos o conéctate. Nos encontrarás disponibles durante todo el evento.</p>
+    <div class="cta-botones">
+      <a href="https://wa.me/573XXXXXXXXX?text=Hola%2C%20te%20vi%20en%20ExpoProBarranquilla%20y%20quiero%20conocer%20m%C3%A1s%20sobre%20Bienestar%20360" class="btn-wa" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escribir por WhatsApp
+      </a>
+      <a href="mailto:leonardo@bienestar360.co?subject=ExpoProBarranquilla%202026%20%E2%80%94%20Bienestar%20360" class="btn-email">
+        ✉️ &nbsp;leonardo@bienestar360.co
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Bienestar 360 SAS · <a href="https://bienestar360.co">bienestar360.co</a></p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
